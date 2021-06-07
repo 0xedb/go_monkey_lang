@@ -9,6 +9,10 @@ import (
 	"github.com/0xedb/go_monkey_lang/lexer"
 )
 
+type (
+	prefixParseFn func() ast.Expression
+	infixParseFn  func(ast.Expression) ast.Expression
+)
 type Parser struct {
 	l         *lexer.Lexer
 	curToken  token.Token
